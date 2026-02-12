@@ -36,7 +36,7 @@ const Main = () => {
                     <div className="search-box">
                         <input type="text" placeholder='Enter a prompt here' />
                         <div>
-                            <img src={assets.photo_icon} alt="" />
+                            <img src={assets.add_photo} alt="" />
                             <img src={assets.mic_icon} alt="" />
                             <img src={assets.send_icon} alt="" />
                         </div>

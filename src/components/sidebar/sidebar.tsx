@@ -16,9 +16,9 @@ const Sidebar = () => {
                 </div>
                 {extended ? <div className={"recent flex flex-col gap-2"}>
                     <p className="text-sm font-medium">Recent</p>
-                    <div className="recent-entry flex items-center justify-between cursor-pointer hover:bg-[#e5e7eb] rounded-full">
-                        <img src={assets.chat_icon} alt="chat_icon" className="w-[25px]" />
-                        <p>What is the capital of France?</p>
+                    <div className="recent-entry flex items-center gap-2 p-2 hover:bg-[#e5e7eb] rounded-full cursor-pointer text-[#282828] transition-all duration-300">
+                        <img src={assets.chat_icon} alt="chat_icon" className="w-[20px]" />
+                        <p className="slice">{extended ? "What is the capital of France?".slice(0, 18) + "..." : ""}</p>
                     </div>
                 </div> : null}
             </div>

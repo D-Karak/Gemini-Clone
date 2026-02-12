@@ -2,6 +2,7 @@
     min-height: 100vh;
     background-color: #f0f4f9;
     padding: 20px;
+    transition: all 0.3s ease-in-out;
 }
 
 .sidebar img {
@@ -29,7 +30,8 @@
 }
 
 .sidebar .new-chat:hover {
-    opacity: 0.8;
+    background-color: #dfe4ea;
+    transition: all 0.3s ease-in-out;
 }
 
 .sidebar .recent {
@@ -59,4 +61,5 @@
 
 .bottom-item:hover {
     background-color: #e5e7eb;
+    transition: all 0.3s ease-in-out;
 }
