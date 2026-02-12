@@ -1,27 +1,35 @@
-import menu_icon from "./menu_icon.png";
-import plus_icon from "./plus_icon.png";
+import menu_icon from "./menu.png";
+import plus_icon from "./plus.png";
 import gemini_icon from "./gemini_logo.png"
-import history_icon from "./history_icon.png"
-import home_icon from "./home_icon.png"
-import settings_icon from "./settings_icon.png"
-import bulb_icon from "./bulb_icon.png"
-import compass_icon from "./compass_icon.png"
-import gallery_icon from "./gallery_icon.png"
-import mic_icon from "./mic_icon.png"
-import send_icon from "./send_icon.png"
-import user_icon from "./user_icon.png"
+import history_icon from "./history.png"
+import settings_icon from "./settings.png"
+import bulb_icon from "./lightbulb.png"
+import compass_icon from "./compass.png"
+import mic_icon from "./mic.png"
+import send_icon from "./send.png"
+import add_photo from "./add_photo.png"
+import photo_icon from "./photo.png"
+import code_icon from "./code_brackets.png"
+import youtube_icon from "./youtube.png"
+import help_icon from "./help.png"
+import chat_icon from "./chat.png"
+import boy_icon from "./boy.png"
 
 export const assets = {
     menu_icon,
     plus_icon,
     gemini_icon,
     history_icon,
-    home_icon,
     settings_icon,
     bulb_icon,
     compass_icon,
-    gallery_icon,
     mic_icon,
     send_icon,
-    user_icon
+    add_photo,
+    photo_icon,
+    code_icon,
+    youtube_icon,
+    help_icon,
+    chat_icon,
+    boy_icon
 }

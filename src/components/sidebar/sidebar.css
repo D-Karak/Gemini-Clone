@@ -1,0 +1,62 @@
+.sidebar {
+    min-height: 100vh;
+    background-color: #f0f4f9;
+    padding: 20px;
+}
+
+.sidebar img {
+    width: 30px;
+}
+
+.sidebar .menu {
+    display: block;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.sidebar .new-chat {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px 20px;
+    gap: 10px;
+    margin-top: 50px;
+    background-color: #e5e7eb;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.sidebar .new-chat:hover {
+    opacity: 0.8;
+}
+
+.sidebar .recent {
+    margin-top: 30px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.sidebar .recent p {
+    margin-bottom: 10px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.sidebar .recent-entry {
+    padding: 10px;
+    gap: 10px;
+}
+
+.bottom-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.bottom-item:hover {
+    background-color: #e5e7eb;
+}
