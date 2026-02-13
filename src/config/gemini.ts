@@ -1,15 +1,17 @@
 import { GoogleGenAI } from "@google/genai";
 import dotenv from "dotenv";
 dotenv.config();
-const API_KEY = process.env.GEMINI_API_KEY;
-const ai = new GoogleGenAI({ apiKey: API_KEY });
+export default async function runChat(prompt: string) {
 
-async function main() {
-    const response = await ai.models.generateContent({
-        model: "gemini-3-flash-preview",
-        contents: "Explain how AI works in a few words",
-    });
-    console.log(response.text);
+    const API_KEY = process.env.GEMINI_API_KEY;
+    const ai = new GoogleGenAI({ apiKey: API_KEY });
+
+    async function main() {
+        const response = await ai.models.generateContent({
+            model: "gemini-3-flash-preview",
+            contents: prompt,
+        });
+        return response.text;
+    }
+    await main();
 }
-
-await main();
