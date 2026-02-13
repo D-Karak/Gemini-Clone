@@ -122,6 +122,21 @@
     gap: 15px;
 }
 
+.search-box button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.search-box button:hover {
+    background-color: #dfe4ea;
+    transform: scale(1.02);
+    transition: all 0.3s ease-in-out;
+    border-radius: 50%;
+}
+
 .main .bottom-info {
     font-size: 13px;
     margin: 15px auto;
