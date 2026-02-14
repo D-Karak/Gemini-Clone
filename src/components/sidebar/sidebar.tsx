@@ -3,7 +3,7 @@ import { assets } from "../../assets/assets"
 import './sidebar.css'
 import { Context } from "../../context/context"
 const Sidebar = () => {
-    const { onSend, prevPrompt, setRecentPrompt } = useContext(Context)
+    const { onSend, prevPrompt, setRecentPrompt, setLoading, setShowResult, setInput, setResultData } = useContext(Context)
     const [extended, setExtended] = useState(false)
     function toggleSidebar() {
         setExtended(prev => !prev)
@@ -16,7 +16,7 @@ const Sidebar = () => {
         <div className='sidebar min-h-screen flex flex-col justify-between p-5 transition-all'>
             <div className="top flex flex-col gap-5">
                 <img onClick={toggleSidebar} className="menu" src={assets.menu_icon} alt="menu_icon" />
-                <div className="new-chat cursor-pointer">
+                <div className="new-chat cursor-pointer" onClick={() => { setLoading(false); setShowResult(false); setRecentPrompt(""); setInput(""); setResultData(""); }}>
                     <img src={assets.plus_icon} alt="plus_icon" />
                     {extended ? <p>New Chat</p> : null}
                 </div>

@@ -1,7 +1,7 @@
 .sidebar {
     min-height: 100vh;
     background-color: #f0f4f9;
-    padding: 20px;
+    padding: 20px 10px;
     transition: all 0.3s ease-in-out;
 }
 
