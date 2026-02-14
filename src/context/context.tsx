@@ -45,14 +45,12 @@ const ContextProvider = ({ children }: { children: React.ReactNode }) => {
         const rawResponse = await runChat(prompt);
         setLoading(false);
         let currentText = "";
-        const words = rawResponse.split(" "); // Typing word-by-word is smoother than char-by-char
+        const words = rawResponse.split(" "); // Typing word-by-word 
 
         words.forEach((word, index) => {
             setTimeout(() => {
                 currentText += word + " ";
 
-                // 3. Parse the accumulated text on every "tick"
-                // This transforms **text** into <strong>text</strong> instantly
                 const htmlOutput = marked.parse(currentText);
                 setResultData(htmlOutput as string);
 

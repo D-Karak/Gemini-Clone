@@ -22,5 +22,7 @@ export default async function runChat(prompt: string) {
     });
 
     // console.log(response.text); //for testing if the response is received or not
-    return response.text || "";
+    return (
+        response.text ? response.text : "Please try again"
+    )
 }   
