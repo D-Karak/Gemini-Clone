@@ -1,7 +1,6 @@
 import { GoogleGenAI } from "@google/genai";
-
 export default async function runChat(prompt: string) {
-    console.log(prompt); //for testing if the prompt is received or not
+    // console.log(prompt); //for testing if the prompt is received or not
     const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
     if (!API_KEY) {
         throw new Error("VITE_GEMINI_API_KEY is not defined in .env");
@@ -12,7 +11,7 @@ export default async function runChat(prompt: string) {
         temperature: 0.7,
         topP: 1,
         topK: 1,
-        maxOutputTokens: 500,
+        maxOutputTokens: 1000,
         stopSequences: [],
     }
 
@@ -22,6 +21,6 @@ export default async function runChat(prompt: string) {
         config: genaration_config,
     });
 
-    console.log(response.text); //for testing if the response is received or not
-    return response.text;
-}
+    // console.log(response.text); //for testing if the response is received or not
+    return response.text || "";
+}   

@@ -14,6 +14,7 @@ import youtube_icon from "./youtube.png"
 import help_icon from "./help.png"
 import chat_icon from "./chat.png"
 import boy_icon from "./boy.png"
+import stop_icon from "./stop.png"
 
 export const assets = {
     menu_icon,
@@ -31,5 +32,6 @@ export const assets = {
     youtube_icon,
     help_icon,
     chat_icon,
-    boy_icon
+    user_icon: boy_icon,
+    stop_icon
 }

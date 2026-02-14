@@ -1,11 +1,11 @@
 import { createContext, useState } from "react";
 import runChat from "../config/gemini";
-
+import { marked } from "marked";
 interface ContextType {
     loading: boolean;
     setLoading: React.Dispatch<React.SetStateAction<boolean>>;
-    prevPrompt: string;
-    setPrevPrompt: React.Dispatch<React.SetStateAction<string>>;
+    prevPrompt: string[];
+    setPrevPrompt: React.Dispatch<React.SetStateAction<string[]>>;
     recentPrompt: string;
     setRecentPrompt: React.Dispatch<React.SetStateAction<string>>;
     showResult: boolean;
@@ -21,26 +21,46 @@ export const Context = createContext<ContextType>({} as ContextType);
 
 const ContextProvider = ({ children }: { children: React.ReactNode }) => {
     const [loading, setLoading] = useState(false);
-    const [prevPrompt, setPrevPrompt] = useState("");
+    const [prevPrompt, setPrevPrompt] = useState<string[]>([]);
     const [recentPrompt, setRecentPrompt] = useState("");
     const [showResult, setShowResult] = useState(false);
-    const [resultData, setResultData] = useState("");
+    const [resultData, setResultData] = useState<string>("");
     const [input, setInput] = useState("");
 
+
     async function onSend(prompt: string) {
-        setResultData("");
+        if (!prompt?.trim()) return;
+
+        setResultData(""); // Clear previous result
         setLoading(true);
         setShowResult(true);
         setRecentPrompt(prompt);
-
-        // If the prompt argument is provided, use it. Otherwise use the input state.
-        // The implementation here assumes prompt is always passed, which aligns with your interface.
-        const response = await runChat(prompt);
-
-        setResultData(response || "");
-        setLoading(false);
+        setPrevPrompt(prev => {
+            if (!prev.includes(prompt)) {
+                return [...prev, prompt];
+            }
+            return prev;
+        });
         setInput("");
+        const rawResponse = await runChat(prompt);
+        setLoading(false);
+        let currentText = "";
+        const words = rawResponse.split(" "); // Typing word-by-word is smoother than char-by-char
+
+        words.forEach((word, index) => {
+            setTimeout(() => {
+                currentText += word + " ";
+
+                // 3. Parse the accumulated text on every "tick"
+                // This transforms **text** into <strong>text</strong> instantly
+                const htmlOutput = marked.parse(currentText);
+                setResultData(htmlOutput as string);
+
+            }, 75 * index); // 75ms delay per word
+        });
+
     }
+
 
     const contextValue: ContextType = {
         prevPrompt,
